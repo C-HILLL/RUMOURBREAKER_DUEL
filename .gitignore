@@ -1,6 +1,15 @@
 # Compiled Lua sources
 luac.out
 
+#dota game files
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/content/
+!/game/
+#!dota_addons/rumourbreaker_duel/
+
 # luarocks build files
 *.src.rock
 *.zip

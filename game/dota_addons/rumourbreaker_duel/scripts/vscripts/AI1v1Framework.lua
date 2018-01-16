@@ -65,7 +65,8 @@ function AI1v1Framework:OnGameStateChange( event )
         --DebugDrawCircle(Vector(0,0,0), Vector(255,0,0), 25, 640, true, 100)
 		self.gameMode:HeroInit()
 		--self.gameMode.TEST()
-		GameRules:GetGameModeEntity():SetThink("TEST", self.gameMode, 5)
+		self.gameMode:Colosseum()
+		--GameRules:GetGameModeEntity():SetThink("TEST", self.gameMode, 5)
 	end 
 end
 --[[

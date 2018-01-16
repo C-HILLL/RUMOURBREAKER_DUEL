@@ -3,16 +3,10 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 32
-	m_flConstantRadius = 50.000000
-	m_ConstantColor =
-	[
-		252,
-		179,
-		84,
-		55,
-	]
+	m_flConstantRadius = 50.0
+	m_ConstantColor = [ 252, 179, 84, 55 ]
 	m_nGroupID = 1
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderRopes"
@@ -20,115 +14,94 @@
 			m_bAdditive = true
 			m_nOrientationType = 3
 			m_hTexture = resource:"materials/particle/beam_generic_5.vtex"
-			m_flRadiusScale = 0.500000
-			m_flTextureVWorldSize = 100.000000
-			m_flTextureVScrollRate = 100.000000
+			m_flRadiusScale = 0.5
+			m_flTextureVWorldSize = 100.0
+			m_flTextureVScrollRate = 100.0
 			m_nMaxTesselation = 1
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_Decay"
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.800000
+			m_flFadeOutTime = 0.8
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartTime = 0.200000
-			m_flStartScale = -16.000000
-			m_flBias = 0.750000
+			m_flStartTime = 0.2
+			m_flStartScale = -16.0
+			m_flBias = 0.75
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade =
-			[
-				164,
-				112,
-				21,
-				255,
-			]
-			m_flFadeStartTime = 0.400000
+			m_ColorFade = [ 164, 112, 21, 255 ]
+			m_flFadeStartTime = 0.4
 		},
 		{
 			_class = "C_OP_RemapDirectionToCPToVector"
 			m_nCP = 2
-			m_flOpEndFadeOutTime = 0.100000
-			m_flOpStartFadeOutTime = 0.100000
+			m_flOpEndFadeOutTime = 0.1
+			m_flOpStartFadeOutTime = 0.1
 			m_nFieldOutput = 21
 			m_bNormalize = true
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.200000
+			m_flFadeInTime = 0.2
 		},
 		{
 			_class = "C_OP_SetSingleControlPointPosition"
-			m_vecCP1Pos =
-			[
-				0.000000,
-				0.000000,
-				384.000000,
-			]
+			m_vecCP1Pos = [ 0.0, 0.0, 384.0 ]
 			m_nCP1 = 2
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.850000
-			m_flEndScale = -16.000000
-			m_flEndTime = 0.200000
+			m_flBias = 0.85
+			m_flEndScale = -16.0
+			m_flEndTime = 0.2
 		},
 		{
 			_class = "C_OP_BasicMovement"
-			m_Gravity =
-			[
-				0.000000,
-				0.000000,
-				-1500.000000,
-			]
-			m_flOpEndFadeInTime = 0.100000
-			m_flOpStartFadeInTime = 0.100000
+			m_Gravity = [ 0.0, 0.0, -1500.0 ]
+			m_flOpEndFadeInTime = 0.1
+			m_flOpStartFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_PositionLock"
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RingWave"
 			m_nControlPointNumber = 2
-			m_flInitialRadius = 0.400000
+			m_flInitialRadius = 0.4
 			m_bEvenDistribution = true
-			m_flParticlesPerOrbit = 23.000000
+			m_flParticlesPerOrbit = 23.0
 			m_nOverrideCP = 1
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
 			m_nParticlesToEmit = 24
 		},
 	]
-	m_ForceGenerators =
+	m_ForceGenerators = 
 	[
 		{
 			_class = "C_OP_AttractToControlPoint"
-			m_vecComponentScale =
-			[
-				1.000000,
-				1.000000,
-				0.000000,
-			]
-			m_fFalloffPower = 0.750000
-			m_fForceAmount = -120000.000000
+			m_vecComponentScale = [ 1.0, 1.0, 0.0 ]
+			m_fFalloffPower = 0.75
+			m_fForceAmount = -120000.0
 			m_bDisableOperator = true
 		},
 	]
-	m_Children =
+	m_Children = 
 	[
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_omniknight/omniknight_purification_b.vpcf"
@@ -153,6 +126,35 @@
 		},
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_omniknight/omniknight_purification_d_glow.vpcf"
+		},
+	]
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
 		},
 	]
 }

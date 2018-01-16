@@ -99,6 +99,24 @@ function AIGameMode:HeroInit()
 	end
 end
 
+function AIGameMode:Colosseum()
+
+	t1_good =  Entities:FindByName(nil, "dota_goodguys_tower1_mid")
+	t1_bad =  Entities:FindByName(nil, "dota_badguys_tower1_mid")
+
+	local radius = 700
+	local centre = (t1_good:GetAbsOrigin()+t1_bad:GetAbsOrigin())/2
+	for i=0,71 do
+
+		local x = radius*math.cos(math.rad(5*i))
+		local y = radius*math.sin(math.rad(5*i))
+		print('x'..x)
+		print('y'..y)
+		local particle = ParticleManager:CreateParticle("particles/basic_projectile/basic_projectile_trail.vpcf", PATTACH_WORLDORIGIN, GameRules:GetGameModeEntity())
+		ParticleManager:SetParticleControl(particle, 3, Vector(centre.x+x, centre.y+y, GetGroundHeight(Vector(centre.x+x, centre.y+y, 0),nil)+20))
+	end
+end
+
 function AIGameMode:TEST()
 	print('just test start')
 	--goodSpawn = Entities:FindByName( nil, "npc_dota_spawner_good_mid_staging" )
@@ -106,13 +124,13 @@ function AIGameMode:TEST()
 	--heroSpawn = Entities:FindByName (nil, "dota_goodguys_tower2_mid")
 	hero = Entities:FindByName (nil, "npc_dota_hero_nevermore")
 	
-	t1_good =  Entities:FindByName(nil, "dota_goodguys_tower1_mid")
-	t1_bad =  Entities:FindByName(nil, "dota_badguys_tower1_mid")
+	
 	--local fight_zone = (t1_good:GetAbsOrigin()+t1_bad:GetAbsOrigin())/2
 	print(hero:GetAbsOrigin())
 	print('omniknight_purification start!')
-	local particle = ParticleManager:CreateParticle("particles/omniknight_purification.vpcf", PATTACH_WORLDORIGIN, hero)
-	ParticleManager:SetParticleControl(particle, 0, Vector(0,0,512))
+	--local particle = ParticleManager:CreateParticle("particles/omniknight_purification.vpcf", PATTACH_WORLDORIGIN, hero)
+	--local particle = ParticleManager:CreateParticle("particles/basic_projectile/basic_projectile_trail.vpcf", PATTACH_WORLDORIGIN, hero)
+	--ParticleManager:SetParticleControl(particle, 3, Vector(0,0,512))
 	print('omniknight_purification finish!')
 	--DebugDrawCircle(hero:GetAbsOrigin(), Vector(255,0,0), 25, 640, true, 1)
 	--DebugDrawCircle(Vector(-500,-400,100), Vector(0,255,0), 25, 640, true, 1)
